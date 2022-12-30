@@ -21,7 +21,7 @@ const router = createBrowserRouter([{
         },
         {
             path: '/home',
-            element: <PrivetRoute><Home /></PrivetRoute>
+            element: <Home />
         },
         {
             path: '/signup',

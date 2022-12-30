@@ -7,17 +7,19 @@ import Spinner from '../../component/Spinner/Spinner';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 import google from '../../assest/google.png';
 import setAuthToken from '../../component/UseToken/UseToken';
+import './SignUp.css';
 
 const SignUp = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const { createUser, updateUser, signInWithGoogle } = useContext(AuthContext);
     const [signUpError, setSignUpError] = useState('');
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(false);
+    const [image, setImage] = useState('')
     const navigate = useNavigate();
     const googleProvider = new GoogleAuthProvider();
     const location = useLocation();
     const from = location.from?.state?.pathname || '/home'
-
+console.log(image)
     const handleSignup = (data) => {
         setSignUpError('')
         setLoading(true);
@@ -136,7 +138,9 @@ return (
                             {...register("image", { required: true })}
                             type="file"
                             placeholder="photo"
+                            id='file'
                             className="input input-bordered" />
+                            <label htmlFor="file" onChange={(e) => setImage(e.target.value)} className='signup-photo bg-gradient-to-r from-primary to-secondary'>Chose Photo</label>
                     </div>
 
                     <div className="form-control relative">

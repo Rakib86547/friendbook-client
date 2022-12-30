@@ -1,0 +1,12 @@
+input[type='file'] {
+    display: none;
+}
+.photo{
+    font-size: 14px;
+}
+.video {
+    font-size: 14px;
+}
+.filling{
+    font-size: 14px;
+}
